@@ -4,8 +4,280 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Marketing Library</title>
+  <style>
+    @font-face {
+      font-family: 'SuisseIntl';
+      font-style: normal;
+      font-weight: 400;
+      src: local('SuisseIntl'), url(https://res.cloudinary.com/demhlsnej/raw/upload/v1727091920/fonts/SuisseIntl-Regular-WebS.woff2) format('woff2');
+    }
+
+    @font-face {
+      font-family: 'SuisseIntl-SB';
+      font-style: normal;
+      font-weight: 600;
+      src: local('SuisseIntl-SB'), url(https://res.cloudinary.com/demhlsnej/raw/upload/v1727091921/fonts/SuisseIntl-SemiBold-WebS.woff2) format('woff2');
+    }
+
+    :root {
+      --suss-blue: #003f30;
+      --suss-blue-light: #0247a2;
+      --suss-light-grey: #e5ebea;
+      --suss-font: SuisseIntl, sans-serif;
+    }
+
+    .override-classes .teaser-title {
+      font-family: SuisseIntl-SB, sans-serif;
+      font-weight: 600;
+      font-style: normal;
+      font-size: 3rem !important;
+    }
+
+    .search-box .search-input {
+      font-size: 1.4rem !important;
+    }
+
+    .override-classes .teaser-text {
+      font-size: 1rem !important;
+      color: #e9e8e8;
+    }
+
+    .override-classes .image {
+      filter: brightness(.8) !important;
+    }
+
+    .cards-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      text-align: center;
+      font-family: var(--suss-font) !important;
+      font-weight: 600 !important;
+      font-style: normal !important;
+      color: var(--suss-blue) !important;
+      margin-top: 6rem !important;
+      font-size: 2rem !important;
+    }
+
+    section h2+p {
+      text-align: center;
+      font-family: SuisseIntl, sans-serif !important;
+      font-weight: normal !important;
+      font-style: normal !important;
+      color: var(--suss-blue) !important;
+      margin-top: 2rem !important;
+      margin-bottom: 4rem !important;
+      font-size: 1.2rem !important;
+    }
+
+    .card {
+      background-color: var(--suss-light-grey);
+      width: 300px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .1), 0 2px 4px -2px rgba(0, 0, 0, .1);
+    }
+
+    .card:hover {
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, .1), 0 8px 10px -6px rgba(0, 0, 0, .1);
+    }
+
+    .card:hover img {
+      transform: scale(1.1);
+      transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+      transition-duration: 0.5s;
+      transition-property: transform;
+    }
+
+    .card div {
+      overflow: hidden;
+    }
+
+    .card h3 {
+      font-family: SuisseIntl-SB, sans-serif !important;
+      color: var(--suss-blue) !important;
+      margin: 0.5rem !important;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .card:hover h3,
+    .card:hover p {
+      color: #55718b !important;
+    }
+
+    .card p {
+      font-family: SuisseIntl, sans-serif !important;
+      color: var(--suss-blue) !important;
+      margin: 0.5rem !important;
+      font-size: 1rem;
+      line-height: 1.2rem;
+    }
+
+    .card p.note {
+      font-size: 0.8rem;
+      line-height: 1rem;
+      color: var(--suss-blue-light) !important;
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .events-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .page-teaser {
+      border-radius: 0.375rem;
+      overflow: hidden;
+    }
+
+    .page-teaser-mask {
+      background-color: var(--suss-light-grey);
+      color: var(--suss-blue);
+      padding: 1rem;
+    }
+
+    .event-title {
+      font-family: var(--suss-font);
+      font-weight: 500;
+      font-size: 1.125rem;
+      margin: 0 0 0.5rem;
+    }
+
+    .event-date {
+      font-family: var(--suss-font);
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .learn-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      color: var(--suss-blue);
+      font-family: var(--suss-font);
+      font-weight: 500;
+      background: transparent;
+      text-decoration: none;
+    }
+
+    .learn-more svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .page-teaser-image-mask {
+      height: 4rem;
+      background-color: var(--suss-blue);
+    }
+  </style>
 </head>
 <body>
   <h1>Marketing Library</h1>
+
+  <cp-dashboard-banner class="override-classes" backgroundImageUrl="https://res.cloudinary.com/demhlsnej/image/upload/f_auto,q_auto/v1730294370/marketing-library/MktLibrary_Hero_1673x215.jpg" teaserTitle="Welcome to the SUSS Marketing Library" teaserText="Use the search box or click on the image cards below to get your media files"></cp-dashboard-banner>
+
+  <section id="new">
+    <div class="events-grid">
+      <div class="page-teaser">
+        <div class="page-teaser-mask">
+          <p class="event-title">AP International Conference</p>
+          <div class="event-date">April 20-22, 2026<br>
+            Presentation: Digital Coating - Scalable and Material Saving Material Deposition by David Volk</div>
+          <a href="/en/company/events/ap-conference" class="learn-more">
+            <span>Learn More</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.8429 10.625H4.375C4.19764 10.625 4.04917 10.5652 3.92958 10.4454C3.80986 10.3259 3.75 10.1774 3.75 10C3.75 9.82266 3.80986 9.67419 3.92958 9.55461C4.04917 9.43489 4.19764 9.37503 4.375 9.37503H13.8429L11.0994 6.63148C10.9755 6.50746 10.9143 6.36239 10.9158 6.19628C10.9175 6.03016 10.9787 5.88246 11.0994 5.75315C11.2287 5.62399 11.3772 5.55725 11.5448 5.55294C11.7126 5.54864 11.8611 5.61114 11.9904 5.74044L15.7227 9.47273C15.8008 9.55079 15.8558 9.63308 15.8877 9.71961C15.9198 9.80614 15.9358 9.89961 15.9358 10C15.9358 10.1004 15.9198 10.1939 15.8877 10.2804C15.8558 10.367 15.8008 10.4493 15.7227 10.5273L11.9904 14.2596C11.8664 14.3835 11.7192 14.4447 11.549 14.4432C11.3785 14.4415 11.2287 14.3761 11.0994 14.2469C10.9787 14.1176 10.9162 13.9712 10.9119 13.8077C10.9076 13.6443 10.9701 13.4979 11.0994 13.3686L13.8429 10.625Z" fill="currentcolor"></path></svg>
+          </a>
+        </div>
+        <div class="page-teaser-image-mask"></div>
+      </div>
+      <div class="page-teaser">
+        <div class="page-teaser-mask">
+          <p class="event-title">MEMS Engineer Forum</p>
+          <div class="event-date">April 21-22, 2026</div>
+          <a href="/en/company/events/mems-engineer-forum" class="learn-more">
+            <span>Learn More</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.8429 10.625H4.375C4.19764 10.625 4.04917 10.5652 3.92958 10.4454C3.80986 10.3259 3.75 10.1774 3.75 10C3.75 9.82266 3.80986 9.67419 3.92958 9.55461C4.04917 9.43489 4.19764 9.37503 4.375 9.37503H13.8429L11.0994 6.63148C10.9755 6.50746 10.9143 6.36239 10.9158 6.19628C10.9175 6.03016 10.9787 5.88246 11.0994 5.75315C11.2287 5.62399 11.3772 5.55725 11.5448 5.55294C11.7126 5.54864 11.8611 5.61114 11.9904 5.74044L15.7227 9.47273C15.8008 9.55079 15.8558 9.63308 15.8877 9.71961C15.9198 9.80614 15.9358 9.89961 15.9358 10C15.9358 10.1004 15.9198 10.1939 15.8877 10.2804C15.8558 10.367 15.8008 10.4493 15.7227 10.5273L11.9904 14.2596C11.8664 14.3835 11.7192 14.4447 11.549 14.4432C11.3785 14.4415 11.2287 14.3761 11.0994 14.2469C10.9787 14.1176 10.9162 13.9712 10.9119 13.8077C10.9076 13.6443 10.9701 13.4979 11.0994 13.3686L13.8429 10.625Z" fill="currentcolor"></path></svg>
+          </a>
+        </div>
+        <div class="page-teaser-image-mask"></div>
+      </div>
+      <div class="page-teaser">
+        <div class="page-teaser-mask">
+          <p class="event-title">Imaps Italy</p>
+          <div class="event-date">5th of May, 2026</div>
+          <a href="/en/company/events/imaps-italy" class="learn-more">
+            <span>Learn More</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.8429 10.625H4.375C4.19764 10.625 4.04917 10.5652 3.92958 10.4454C3.80986 10.3259 3.75 10.1774 3.75 10C3.75 9.82266 3.80986 9.67419 3.92958 9.55461C4.04917 9.43489 4.19764 9.37503 4.375 9.37503H13.8429L11.0994 6.63148C10.9755 6.50746 10.9143 6.36239 10.9158 6.19628C10.9175 6.03016 10.9787 5.88246 11.0994 5.75315C11.2287 5.62399 11.3772 5.55725 11.5448 5.55294C11.7126 5.54864 11.8611 5.61114 11.9904 5.74044L15.7227 9.47273C15.8008 9.55079 15.8558 9.63308 15.8877 9.71961C15.9198 9.80614 15.9358 9.89961 15.9358 10C15.9358 10.1004 15.9198 10.1939 15.8877 10.2804C15.8558 10.367 15.8008 10.4493 15.7227 10.5273L11.9904 14.2596C11.8664 14.3835 11.7192 14.4447 11.549 14.4432C11.3785 14.4415 11.2287 14.3761 11.0994 14.2469C10.9787 14.1176 10.9162 13.9712 10.9119 13.8077C10.9076 13.6443 10.9701 13.4979 11.0994 13.3686L13.8429 10.625Z" fill="currentcolor"></path></svg>
+          </a>
+        </div>
+        <div class="page-teaser-image-mask"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Predefined Filters</h2>
+    <p>For easy access, some preselected filters for common search request.</p>
+    <div class="cards-container">
+      <a href="https://suss.picturepark.com/contents/rootChannel?searchMode=and&sort=%5B%7B%22field%22:%22basicInformation.autoGeneratedId%22,%22direction%22:%22Desc%22%7D%5D&filters=%5B%7B%22aggregationName%22:%22corporateInformation.corporate.name%22,%22filter%22:%7B%22path%22:%22corporateInformation.corporate%22,%22filter%22:%7B%22field%22:%22corporateInformation.corporate.name%22,%22term%22:%22Template%22,%22kind%22:%22TermFilter%22%7D,%22kind%22:%22NestedFilter%22%7D,%22kind%22:%22AggregationFilter%22%7D%5D" class="card">
+        <div>
+          <img src="https://res.cloudinary.com/demhlsnej/image/upload/f_auto,q_auto/v1730294369/marketing-library/Kachel_LINKS_Templates_300x150.jpg" alt="corporate presentation templates" width="300" height="150" />
+        </div>
+        <h3>Templates</h3>
+        <p>Powerpoint templates, letter templates, design guidelines, ...</p>
+      </a>
+      <a href='/contents/rootChannel?searchMode=and&sort=%5B%7B"field":"basicInformation.autoGeneratedId","direction":"Desc"%7D%5D&filters=%5B%7B"aggregationName":"basicInformation.mediaTypes.name","filter":%7B"path":"basicInformation.mediaTypes","filter":%7B"field":"basicInformation.mediaTypes.name","term":"Brochure","kind":"TermFilter"%7D,"kind":"NestedFilter"%7D,"kind":"AggregationFilter"%7D,%7B"aggregationName":"basicInformation.mediaTypes.name","filter":%7B"path":"basicInformation.mediaTypes","filter":%7B"field":"basicInformation.mediaTypes.name","term":"Datasheet","kind":"TermFilter"%7D,"kind":"NestedFilter"%7D,"kind":"AggregationFilter"%7D%5D' class="card">
+        <div>
+          <img src="https://res.cloudinary.com/demhlsnej/image/upload/f_auto,q_auto/v1730294370/marketing-library/Kachel_MITTE_ProductOverviewBrochure_300x150.jpg" alt="brochures & datasheets" width="300" height="150" />
+        </div>
+        <h3>Brochures &amp; Datasheets</h3>
+        <p>Latest brochures and datasheets for our products.</p>
+      </a>
+      <a href="https://suss.picturepark.com/contents/rootChannel?filters=%5B%7B%22aggregationName%22:%22productInformation.products.productLine.name%22,%22filter%22:%7B%22path%22:%22productInformation.products.productLine%22,%22filter%22:%7B%22field%22:%22productInformation.products.productLine.name%22,%22term%22:%22Inkjet%20Printer%22,%22kind%22:%22TermFilter%22%7D,%22kind%22:%22NestedFilter%22%7D,%22kind%22:%22AggregationFilter%22%7D,%7B%22aggregationName%22:%22productInformation.products.productLine.name%22,%22filter%22:%7B%22path%22:%22productInformation.products.productLine%22,%22filter%22:%7B%22field%22:%22productInformation.products.productLine.name%22,%22term%22:%22Wafer%20Bonder%22,%22kind%22:%22TermFilter%22%7D,%22kind%22:%22NestedFilter%22%7D,%22kind%22:%22AggregationFilter%22%7D,%7B%22aggregationName%22:%22productInformation.products.productLine.name%22,%22filter%22:%7B%22path%22:%22productInformation.products.productLine%22,%22filter%22:%7B%22field%22:%22productInformation.products.productLine.name%22,%22term%22:%22Imprint%20Lithography%22,%22kind%22:%22TermFilter%22%7D,%22kind%22:%22NestedFilter%22%7D,%22kind%22:%22AggregationFilter%22%7D,%7B%22aggregationName%22:%22productInformation.products.productLine.name%22,%22filter%22:%7B%22path%22:%22productInformation.products.productLine%22,%22filter%22:%7B%22field%22:%22productInformation.products.productLine.name%22,%22term%22:%22Photomask%20Equipment%22,%22kind%22:%22TermFilter%22%7D,%22kind%22:%22NestedFilter%22%7D,%22kind%22:%22AggregationFilter%22%7D,%7B%22aggregationName%22:%22basicInformation.mediaTypes.name%22,%22filter%22:%7B%22path%22:%22basicInformation.mediaTypes%22,%22filter%22:%7B%22field%22:%22basicInformation.mediaTypes.name%22,%22term%22:%22Presentation%22,%22kind%22:%22TermFilter%22%7D,%22kind%22:%22NestedFilter%22%7D,%22kind%22:%22AggregationFilter%22%7D,%7B%22aggregationName%22:%22productInformation.products.productLine.name%22,%22filter%22:%7B%22path%22:%22productInformation.products.productLine%22,%22filter%22:%7B%22field%22:%22productInformation.products.productLine.name%22,%22term%22:%22Excimer%20Laser%20Processing%22,%22kind%22:%22TermFilter%22%7D,%22kind%22:%22NestedFilter%22%7D,%22kind%22:%22AggregationFilter%22%7D,%7B%22aggregationName%22:%22productInformation.products.productLine.name%22,%22filter%22:%7B%22path%22:%22productInformation.products.productLine%22,%22filter%22:%7B%22field%22:%22productInformation.products.productLine.name%22,%22term%22:%22Projection%20Scanner%22,%22kind%22:%22TermFilter%22%7D,%22kind%22:%22NestedFilter%22%7D,%22kind%22:%22AggregationFilter%22%7D,%7B%22aggregationName%22:%22productInformation.products.productLine.name%22,%22filter%22:%7B%22path%22:%22productInformation.products.productLine%22,%22filter%22:%7B%22field%22:%22productInformation.products.productLine.name%22,%22term%22:%22Coater%20%26%20Developer%22,%22kind%22:%22TermFilter%22%7D,%22kind%22:%22NestedFilter%22%7D,%22kind%22:%22AggregationFilter%22%7D,%7B%22aggregationName%22:%22productInformation.products.productLine.name%22,%22filter%22:%7B%22path%22:%22productInformation.products.productLine%22,%22filter%22:%7B%22field%22:%22productInformation.products.productLine.name%22,%22term%22:%22Mask%20Aligner%22,%22kind%22:%22TermFilter%22%7D,%22kind%22:%22NestedFilter%22%7D,%22kind%22:%22AggregationFilter%22%7D,%7B%22aggregationName%22:%22productInformation.products.productLine.name%22,%22filter%22:%7B%22path%22:%22productInformation.products.productLine%22,%22filter%22:%7B%22field%22:%22productInformation.products.productLine.name%22,%22term%22:%22Metrology%22,%22kind%22:%22TermFilter%22%7D,%22kind%22:%22NestedFilter%22%7D,%22kind%22:%22AggregationFilter%22%7D%5D&sort=%5B%7B%22field%22:%22fileMetadata.fileName%22,%22direction%22:%22Desc%22%7D%5D&searchMode=and" class="card">
+        <div>
+          <img src="https://res.cloudinary.com/demhlsnej/image/upload/f_auto,q_auto/v1730294370/marketing-library/Kachel_RECHTS_CompanyPPT_300x150.jpg" alt="" width="300" height="150" />
+        </div>
+        <h3>Product Presentations</h3>
+        <p>Presentations of our products</p>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Video Tutorials</h2>
+    <p>Learn how to use the new Marketing Library.</p>
+    <div class="cards-container">
+      <a href="https://youtu.be/i-JjXR-dB_M" class="card" target="_blank">
+        <div>
+          <img src="https://res.cloudinary.com/demhlsnej/image/upload/f_auto,q_auto/v1730303406/marketing-library/video_icon.png" alt="" width="300" height="150" />
+        </div>
+        <h3>Basics</h3>
+        <p>Overview of basic use cases</p>
+      </a>
+      <a href="https://youtu.be/0hEK1sYhPUw" class="card" target="_blank">
+        <div>
+          <img src="https://res.cloudinary.com/demhlsnej/image/upload/v1730303406/marketing-library/video_icon.png" alt="" width="300" height="150" />
+        </div>
+        <h3>How Search Works</h3>
+        <p>Different search options explained</p>
+      </a>
+    </div>
+  </section>
 </body>
 </html>
